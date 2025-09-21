@@ -1,0 +1,29 @@
+name: Fetch Repository Releases
+
+on:
+  workflow_dispatch:    # 允许手动触发
+  schedule:
+    - cron: '0 3 * * *' # 每天凌晨3点定时触发（UTC时间）
+
+jobs:
+  fetch-releases:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch latest releases
+        env:
+          REPO: MoonTechLab/Selene
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s \
+            -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${REPO}/releases" > releases.json
+          echo "已拉取发行版信息到 releases.json"
+
+      - name: Upload releases.json as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: releases-json
+          path: releases.json
