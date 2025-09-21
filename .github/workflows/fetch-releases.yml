@@ -1,9 +1,9 @@
-name: Fetch Repository Releases
+name: Fetch Repository Releases 和 Assets
 
 on:
-  workflow_dispatch:    # 允许手动触发
+  workflow_dispatch:
   schedule:
-    - cron: '0 3 * * *' # 每天凌晨3点定时触发（UTC时间）
+    - cron: '0 3 * * *'
 
 jobs:
   fetch-releases:
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Fetch latest releases
+      - name: Fetch latest releases info
         env:
           REPO: MoonTechLab/Selene
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -20,10 +20,22 @@ jobs:
           curl -s \
             -H "Authorization: token $GH_TOKEN" \
             "https://api.github.com/repos/${REPO}/releases" > releases.json
-          echo "已拉取发行版信息到 releases.json"
+          echo "Release metadata saved to releases.json"
+      
+      - name: Download assets from releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p release-assets
+          asset_urls=$(jq -r '.[].assets[].browser_download_url' releases.json)
+          for url in $asset_urls; do
+            fname=$(basename "$url")
+            curl -L -H "Authorization: token $GH_TOKEN" "$url" -o "release-assets/$fname"
+            echo "Downloaded $fname"
+          done
 
-      - name: Upload releases.json as artifact
+      - name: Upload assets as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: releases-json
-          path: releases.json
+          name: release-assets
+          path: release-assets/
