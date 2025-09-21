@@ -4,7 +4,7 @@
   <img src="logo.jpg" alt="Selene Logo" width="120">
 </div>
 
-> 🎬 **Selene** 是以 [MoonTV](https://github.com/MoonTechLab/LunaTV) v100 版本为后端的客户端，保证原汁原味体验的同时，优化了移动端操作体验。它基于 **Flutter** 构建，专为移动端打造，目前支持 Android-ArmV8 和 iOS 平台。
+> 🎬 **Selene** 是以 [MoonTV](https://github.com/MoonTechLab/LunaTV) v100 版本为后端的客户端，保证原汁原味的同时，优化了移动端操作体验。它基于 **Flutter** 构建，专为移动端打造，目前支持 Android-ArmV8 和 iOS 平台。
 
 <div align="center">
 
