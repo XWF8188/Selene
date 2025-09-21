@@ -1,9 +1,9 @@
-name: Fetch Repository Releases 和 Assets
+name: Fetch Upstream Releases 和 Assets
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:      # 手动触发
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 3 * * *'   # 每天凌晨自动运行
 
 jobs:
   fetch-releases:
@@ -20,8 +20,7 @@ jobs:
           curl -s \
             -H "Authorization: token $GH_TOKEN" \
             "https://api.github.com/repos/${REPO}/releases" > releases.json
-          echo "Release metadata saved to releases.json"
-      
+
       - name: Download assets from releases
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
