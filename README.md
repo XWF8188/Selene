@@ -4,7 +4,7 @@
   <img src="logo.jpg" alt="Selene Logo" width="120">
 </div>
 
-> 🎬 **Selene** 是以 [MoonTV](https://github.com/MoonTechLab/LunaTV) v100 版本为后端的客户端，保证原汁原味的同时，优化了移动端操作体验。它基于 **Flutter** 构建，专为移动端打造，目前支持 Android-ArmV8 和 iOS 平台。
+> 🎬 **Selene** 是以 [MoonTV](https://github.com/MoonTechLab/LunaTV) v100 版本 / [Helios](https://github.com/MoonTechLab/Helios) 为后端的客户端，保证原汁原味的同时，优化了移动端操作体验。它基于 **Flutter** 构建，专为移动端打造，目前支持 Android-ArmV8 和 iOS 平台。
 
 <div align="center">
 
@@ -45,7 +45,7 @@
 ### 🔧 技术特性
 - **高性能播放** - 基于 FVP 播放器，支持多种视频格式
 - **智能缓存** - 豆瓣数据缓存机制，提升加载速度
-- **网络优化** - 支持 WebSocket 实时搜索，响应更迅速
+- **网络优化** - 支持 SSE 实时搜索，响应更迅速
 
 ## 📱 支持平台
 
@@ -102,3 +102,5 @@
 <div align="center">
   <p>如果这个项目对您有帮助，请给个 ⭐️ 支持一下！</p>
 </div>
+
+[![Star History Chart](https://api.star-history.com/svg?repos=MoonTechLab/Selene&type=Date)](https://www.star-history.com/#MoonTechLab/Selene&Date)
