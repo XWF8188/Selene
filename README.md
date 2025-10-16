@@ -4,7 +4,7 @@
   <img src="logo.jpg" alt="Selene Logo" width="120">
 </div>
 
-> 🎬 **Selene** 是以 [MoonTV](https://github.com/MoonTechLab/LunaTV) v100 版本 / [Helios](https://github.com/MoonTechLab/Helios) 为后端的客户端，保证原汁原味的同时，优化了移动端操作体验。它基于 **Flutter** 构建，专为移动端打造，目前支持 Android-ArmV8 和 iOS 平台。
+> 🎬 **Selene** 是以 [MoonTV](https://github.com/MoonTechLab/LunaTV) v100 版本 / [Helios](https://github.com/MoonTechLab/Helios) 为后端的客户端，保证原汁原味的同时，优化了移动端和桌面端操作体验。它基于 **Flutter** 构建，目前支持 Android、iOS 和 macOS 平台。
 
 <div align="center">
 
@@ -12,6 +12,7 @@
 ![Dart](https://img.shields.io/badge/Dart-3.4.3-0175C2?logo=dart)
 ![Android](https://img.shields.io/badge/Android-21+-3DDC84?logo=android)
 ![iOS](https://img.shields.io/badge/iOS-12.0+-000000?logo=ios)
+![macOS](https://img.shields.io/badge/macOS-10.14+-000000?logo=apple)
 
 </div>
 
@@ -44,14 +45,16 @@
 - **流畅动画** - 丰富的交互动画，提升使用体验
 
 ### 🔧 技术特性
-- **高性能播放** - 基于 FVP 播放器，支持多种视频格式
-- **智能缓存** - 豆瓣数据缓存机制，提升加载速度
-- **网络优化** - 支持 SSE 实时搜索，响应更迅速
+- **高性能播放** - 移动端使用 Awesome Video Player + FVP 后端，桌面端使用 Media Kit，支持多种视频格式
+- **智能缓存** - 图片缓存和数据缓存机制，提升加载速度
+- **网络优化** - 支持 WebSocket 实时通信，响应更迅速
+- **跨平台适配** - 针对不同平台优化的播放器和 UI 控件
 
 ## 📱 支持平台
 
 - **Android** - 最低支持 Android 5.0 (API 21)
 - **iOS** - 最低支持 iOS 12.0
+- **macOS** - 最低支持 macOS 10.14 (Mojave)
 
 ## 📖 使用说明
 
@@ -69,11 +72,15 @@
 ## 🏗️ 技术架构
 
 ### 核心技术栈
-- **Flutter** - 跨平台 UI 框架
-- **Dart** - 编程语言
+- **Flutter 3.4.3** - 跨平台 UI 框架
+- **Dart 3.4.3** - 编程语言
 - **Provider** - 状态管理
 - **Dio** - HTTP 网络请求
-- **FVP** - 视频播放器
+- **FVP** - 播放器后端
+- **Awesome Video Player** - 移动端播放器前端
+- **Media Kit** - 桌面端播放器前端
+- **Cached Network Image** - 图片缓存
+- **DLNA Dart** - 投屏功能
 
 ## ⚠️ 免责声明
 
