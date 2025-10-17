@@ -17,13 +17,25 @@
 </div>
 
 <details>
-  <summary>点击查看项目截图</summary>
-  <img src="screenshot1.jpg" alt="项目截图" width=300>
-  <img src="screenshot2.jpg" alt="项目截图" width=300>
-  <img src="screenshot3.jpg" alt="项目截图" width=300>
-  <img src="screenshot4.jpg" alt="项目截图" width=300>
-  <img src="screenshot5.jpg" alt="项目截图" width=300>
-  <img src="screenshot6.jpg" alt="项目截图" width=300>
+  <summary>点击查看移动端截图</summary>
+  <img src="screenshot/Screenshot_1.png" alt="项目截图" width=300>
+  <img src="screenshot/Screenshot_2.png" alt="项目截图" width=300>
+  <img src="screenshot/Screenshot_3.png" alt="项目截图" width=300>
+  <img src="screenshot/Screenshot_4.png" alt="项目截图" width=300>
+  <img src="screenshot/Screenshot_5.png" alt="项目截图" width=300>
+  <img src="screenshot/Screenshot_6.png" alt="项目截图" width=300>
+  <img src="screenshot/Screenshot_8.png" alt="项目截图" width=300>
+  <img src="screenshot/Screenshot_7.png" alt="项目截图">
+</details>
+
+<details>
+  <summary>点击查看 pc 端 / 宽屏设备截图</summary>
+  <img src="screenshot/Screenshot_9.png" alt="项目截图">
+  <img src="screenshot/Screenshot_10.png" alt="项目截图">
+  <img src="screenshot/Screenshot_11.png" alt="项目截图">
+  <img src="screenshot/Screenshot_12.png" alt="项目截图">
+  <img src="screenshot/Screenshot_13.png" alt="项目截图">
+  <img src="screenshot/Screenshot_14.png" alt="项目截图">
 </details>
 
 ### 请不要在 B站、小红书、微信公众号、抖音、今日头条或其他中国大陆社交平台发布视频或文章宣传本项目，不授权任何“科技周刊/月刊”类项目或站点收录本项目。
