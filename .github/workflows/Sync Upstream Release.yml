@@ -1,0 +1,67 @@
+name: Sync Latest Upstream Release
+
+on:
+  workflow_dispatch:      # 手动触发
+  schedule:
+    - cron: '0 3 * * *'   # 每天自动运行
+
+jobs:
+  sync-latest-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Get latest upstream release info
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s -H "Authorization: token $GH_TOKEN" "https://api.github.com/repos/MoonTechLab/Selene/releases/latest" > latest_release.json
+          jq . latest_release.json
+      - name: Check if this repo already has the latest tag
+        id: check_tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG_NAME=$(jq -r '.tag_name' latest_release.json)
+          echo "Latest upstream tag: $TAG_NAME"
+          # 查询本仓库是否已有同名 tag
+          TAG_EXISTS=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/tags/$TAG_NAME" | jq -r '.tag_name')
+          if [[ "$TAG_EXISTS" == "$TAG_NAME" ]]; then
+            echo "latest_tag_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "latest_tag_exists=false" >> $GITHUB_OUTPUT
+          fi
+      - name: Early exit if already up-to-date
+        if: steps.check_tag.outputs.latest_tag_exists == 'true'
+        run: |
+          echo "Latest release already exists in this repo, skipping sync."
+          exit 0
+      - name: Download upstream release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p upstream-assets
+          asset_urls=$(jq -r '.assets[].browser_download_url' latest_release.json)
+          for url in $asset_urls; do
+            fname=$(basename "$url")
+            curl -L -H "Authorization: token $GH_TOKEN" "$url" -o "upstream-assets/$fname"
+          done
+      - name: Extract release info
+        id: extract
+        run: |
+          echo "tag_name=$(jq -r '.tag_name' latest_release.json)" >> $GITHUB_OUTPUT
+          echo "release_name=$(jq -r '.name' latest_release.json)" >> $GITHUB_OUTPUT
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          jq -r '.body' latest_release.json >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      - name: Create release in this repo
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.extract.outputs.tag_name }}
+          name: ${{ steps.extract.outputs.release_name }}
+          body: ${{ steps.extract.outputs.body }}
+          files: upstream-assets/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
