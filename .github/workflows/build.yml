@@ -64,6 +64,8 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           cache: true
+          cache-key: ${{ runner.os }}-flutter
+          pub-cache-key: ${{ runner.os }}-flutter-pub
 
       - name: Install Java
         if: matrix.name == 'android'
@@ -84,9 +86,7 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
             android/.gradle
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          key: ${{ runner.os }}-gradle
 
       - name: Cache NDK
         if: matrix.name == 'android'
@@ -103,16 +103,6 @@ jobs:
         run: |
           echo "y" | sdkmanager --install "ndk;${{ env.NDK_VERSION }}"
           echo "y" | sdkmanager --install "ndk;${{ env.NDK_VERSION_DEPS }}"
-      
-      - name: Cache Pub dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            ${{ env.PUB_CACHE }}
-            ~/.pub-cache
-          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pub-
           
       - name: Write sign info
         if: matrix.name == 'android'
