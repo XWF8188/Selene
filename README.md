@@ -8,12 +8,12 @@
 
 <div align="center">
 
-![Flutter](https://img.shields.io/badge/Flutter-3.4.3-02569B?logo=flutter)
-![Dart](https://img.shields.io/badge/Dart-3.4.3-0175C2?logo=dart)
-![Android](https://img.shields.io/badge/Android-21+-3DDC84?logo=android)
-![iOS](https://img.shields.io/badge/iOS-12.0+-000000?logo=ios)
-![macOS](https://img.shields.io/badge/macOS-10.14+-000000?logo=apple)
-![Windows](https://img.shields.io/badge/Windows-7+-0078D6?logo=windows)
+![Flutter](https://img.shields.io/badge/Flutter-3.4.3+-02569B?logo=flutter)
+![Dart](https://img.shields.io/badge/Dart-3.4.3+-0175C2?logo=dart)
+![Android](https://img.shields.io/badge/Android-5.0+(API_21)-3DDC84?logo=android)
+![iOS](https://img.shields.io/badge/iOS-13.0+-000000?logo=ios)
+![macOS](https://img.shields.io/badge/macOS-11.0+-000000?logo=apple)
+![Windows](https://img.shields.io/badge/Windows-10+-0078D6?logo=windows)
 
 </div>
 
@@ -66,9 +66,9 @@
 ## 📱 支持平台
 
 - **Android** - 最低支持 Android 5.0 (API 21)
-- **iOS** - 最低支持 iOS 12.0
-- **macOS** - 最低支持 macOS 10.14 (Mojave)
-- **Windows** - 最低支持 Windows 7
+- **iOS** - 最低支持 iOS 13.0
+- **macOS** - 最低支持 macOS 11.0 (Big Sur)
+- **Windows** - 最低支持 Windows 10
 
 ## 📖 使用说明
 
