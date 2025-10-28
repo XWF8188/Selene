@@ -64,8 +64,6 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           cache: true
-          cache-key: ${{ runner.os }}-flutter
-          pub-cache-key: ${{ runner.os }}-flutter-pub
 
       - name: Install Java
         if: matrix.name == 'android'
@@ -86,7 +84,9 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
             android/.gradle
-          key: ${{ runner.os }}-gradle
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
       - name: Cache NDK
         if: matrix.name == 'android'
