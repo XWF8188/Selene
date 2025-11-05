@@ -116,7 +116,7 @@
 
 ## 🖇 下载地址
 
-- [github](https://github.com/XWF8188/Selene/releases) 
+- [Github Releases发行版](https://github.com/XWF8188/Selene/releases) 
 
 ## 🙏 致谢
 
