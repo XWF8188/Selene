@@ -120,7 +120,7 @@
 
 ## 🙏 致谢
 
-- [MoonTV](https://github.com/MoonTechLab/LunaTV) - 后端服务支持
+- [LunaTV](https://github.com/XWF8188/LunaTV) - 后端服务支持
 - [Flutter](https://flutter.dev/) - 跨平台开发框架
 - 所有用户的支持
 ---
