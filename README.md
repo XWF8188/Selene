@@ -114,6 +114,10 @@
 
 **使用本应用即表示您已阅读并同意上述免责声明。**
 
+## 🖇 下载地址
+
+[github](https://github.com/XWF8188/Selene/releases) 
+
 ## 🙏 致谢
 
 - [MoonTV](https://github.com/MoonTechLab/LunaTV) - 后端服务支持
