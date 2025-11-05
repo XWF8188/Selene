@@ -4,7 +4,7 @@
   <img src="logo.jpg" alt="Selene Logo" width="120">
 </div>
 
-> 🎬 **Selene** 是以 [MoonTV](https://github.com/MoonTechLab/LunaTV) v100 版本 / [Helios](https://github.com/MoonTechLab/Helios) 为后端的客户端，保证原汁原味的同时，优化了移动端和桌面端操作体验。它基于 **Flutter** 构建，目前支持 Android、iOS、macOS 和 Windows 平台。
+> 🎬 **Selene** 是以 [LunaTV](https://github.com/XWF8188/LunaTV) 版本 / [Helios](https://github.com/XWF8188/Helios) 为后端的客户端，保证原汁原味的同时，优化了移动端和桌面端操作体验。它基于 **Flutter** 构建，目前支持 Android、iOS、macOS 和 Windows 平台。
 
 <div align="center">
 
